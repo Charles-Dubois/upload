@@ -18,8 +18,8 @@ router.get("/", (_req, res) => {
 router.post("/", upload.single("profilPicture"), (req, res) => {
   const date = new Date().toString().slice(4, 24).replaceAll(" ", "/");
   const idPicture = `${req.body.username}-${date}-${req.file.originalname}`;
-  console.log(idPicture.toString());
-
+  // console.log(idPicture.toString());
+  console.log(req.body);
   fs.renameSync(
     req.file.path,
     path.join(req.file.destination, req.file.originalname)
